@@ -116,16 +116,7 @@ INSERT INTO `utilisateurs` (`id`, `email`, `password`) VALUES
 
 --
 -- Déclencheurs `utilisateurs`
---
-DELIMITER $$
-CREATE TRIGGER `before_utilisateur_update` AFTER UPDATE ON `utilisateurs` FOR EACH ROW INSERT INTO audit
- SET action = 'update',
-     user_id = OLD.id,
-     email = OLD.email,
-     newemail = NEW.email,
-     changedate = NOW()
-$$
-DELIMITER ;
+-
 
 --
 -- Index pour les tables déchargées
